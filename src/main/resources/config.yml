@@ -10,6 +10,7 @@ messages:
       help: "&6&l⚡ &e&lEvento &6&l⚡ &8» &fUso: &e/jointeam <equipo>"
       already_in_team: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cYa estás en un equipo"
       team_not_found: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cEl equipo indicado no existe"
+      max_players: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cEste equipo ya está lleno"
     admin:
       help: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cArgumentos insuficientes"
       createTeam:

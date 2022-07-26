@@ -31,6 +31,12 @@ public class JoinTeamCommand implements CommandClass {
         }
 
         teamManager.findTeam(team).ifPresentOrElse(team1 -> {
+
+            if (team1.getPlayerList().size() >= config.get("max_players_per_team").getInt()) {
+                sender.sendMessage(TextUtils.colorize(config.get("messages", "commands", "jointeam", "max_players").getString()));
+                return;
+            }
+
             team1.addPlayer(sender.getName());
             PigUtils.spawnPigAndSetPassenger(team1.getSpawnLocation(), sender);
         }, () -> sender.sendMessage(TextUtils.colorize(config.get("messages", "commands", "jointeam", "team_not_found").getString())));
