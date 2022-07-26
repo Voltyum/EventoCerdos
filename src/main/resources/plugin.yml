@@ -1,0 +1,10 @@
+name: EventoCerdos
+version: '${project.version}'
+main: com.yosoyvillaa.eventocerdos.EventoCerdos
+api-version: 1.18
+softdepend: [ PlaceholderAPI ]
+authors: [ YoSoyVillaa ]
+description: Plugin para el evento de cerdos de Voltyum
+libraries:
+  - com.google.inject:guice:5.1.0
+  - org.spongepowered:configurate-yaml:4.1.2
