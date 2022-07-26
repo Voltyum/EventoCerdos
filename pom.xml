@@ -24,14 +24,14 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>16</source>
+                    <target>16</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -43,6 +43,14 @@
                                 <relocation>
                                     <pattern>me.fixeddev.commandflow</pattern>
                                     <shadedPattern>com.yosoyvillaa.libs.me.fixeddev.commandflow</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.intellij</pattern>
+                                    <shadedPattern>com.yosoyvillaa.libs.org.intellij</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.jetbrains</pattern>
+                                    <shadedPattern>com.yosoyvillaa.libs.org.jetbrains</shadedPattern>
                                 </relocation>
                             </relocations>
                             <createDependencyReducedPom>false</createDependencyReducedPom>

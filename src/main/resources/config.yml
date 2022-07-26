@@ -1,0 +1,26 @@
+max_players_per_team: 50
+
+messages:
+  placeholder:
+    not_in_team: "&7Ninguno"
+  commands:
+    main:
+      help: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cArgumentos insuficientes"
+    jointeam:
+      help: "&6&l⚡ &e&lEvento &6&l⚡ &8» &fUso: &e/jointeam <equipo>"
+      already_in_team: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cYa estás en un equipo"
+      team_not_found: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cEl equipo indicado no existe"
+    admin:
+      help: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cArgumentos insuficientes"
+      createTeam:
+        already_exists: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cYa existe un equipo con esa id"
+        success: "&6&l⚡ &e&lEvento &6&l⚡ &8» &fEl equipo &e%id% &fha sido creado correctamente"
+      setDisplayName:
+        success: "&6&l⚡ &e&lEvento &6&l⚡ &8» &fSe ha establecido el display name a %displayName%"
+        team_not_found: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cEquipo no encontrado"
+      setSpawn:
+        success: "&6&l⚡ &e&lEvento &6&l⚡ &8» &fEl spawn ha sido establecido correctamente"
+        error: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cHa ocurrido un error al establecer el comando, revisa la consola"
+      resetTeams:
+        success: "&6&l⚡ &e&lEvento &6&l⚡ &8» &fLos equipos han sido reiniciados"
+        error: "&6&l⚡ &e&lEvento &6&l⚡ &8» &cHa ocurrido un error al reiniciar los equipos, revisa la consola"
