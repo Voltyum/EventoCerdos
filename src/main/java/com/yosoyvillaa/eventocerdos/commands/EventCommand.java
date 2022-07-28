@@ -1,26 +1,19 @@
 package com.yosoyvillaa.eventocerdos.commands;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-import com.yosoyvillaa.eventocerdos.commands.subcommands.AdminCommand;
-import com.yosoyvillaa.eventocerdos.file.YAMLFile;
-import com.yosoyvillaa.eventocerdos.utils.TextUtils;
+import com.yosoyvillaa.eventocerdos.commands.subcommands.CreateTeamCommand;
+import com.yosoyvillaa.eventocerdos.commands.subcommands.ResetTeamsCommand;
+import com.yosoyvillaa.eventocerdos.commands.subcommands.SetDisplayNameCommand;
+import com.yosoyvillaa.eventocerdos.commands.subcommands.SetSpawnCommand;
 import me.fixeddev.commandflow.annotated.CommandClass;
 import me.fixeddev.commandflow.annotated.annotation.Command;
 import me.fixeddev.commandflow.annotated.annotation.SubCommandClasses;
-import me.fixeddev.commandflow.bukkit.annotation.Sender;
-import org.bukkit.entity.Player;
 
-@Command(names = {"event", "evento"})
-@SubCommandClasses(
-        AdminCommand.class
-)
+@Command(names = "eventadmin", permission = "evento.admin", permissionMessage = "§6§l⚡ §e§lVoltyum §6§l⚡ §7» §c¡Permisos insuficientes!")
+@SubCommandClasses({
+        CreateTeamCommand.class,
+        SetDisplayNameCommand.class,
+        ResetTeamsCommand.class,
+        SetSpawnCommand.class
+})
 public class EventCommand implements CommandClass {
-
-    @Inject @Named("config") private YAMLFile config;
-
-    @Command(names = "")
-    public void onEventCommand(@Sender Player sender) {
-        sender.sendMessage(TextUtils.colorize(config.get("messages", "commands", "main", "help").getString()));
-    }
 }

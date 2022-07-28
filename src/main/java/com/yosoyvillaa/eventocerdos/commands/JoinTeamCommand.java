@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.yosoyvillaa.eventocerdos.file.YAMLFile;
 import com.yosoyvillaa.eventocerdos.manager.TeamManager;
+import com.yosoyvillaa.eventocerdos.objects.SpawnLocation;
 import com.yosoyvillaa.eventocerdos.utils.PigUtils;
 import com.yosoyvillaa.eventocerdos.utils.TextUtils;
 import me.fixeddev.commandflow.annotated.CommandClass;
@@ -37,8 +38,8 @@ public class JoinTeamCommand implements CommandClass {
                 return;
             }
 
-            team1.addPlayer(sender.getName());
-            PigUtils.spawnPigAndSetPassenger(team1.getSpawnLocation(), sender);
+            teamManager.addPlayerToTeam(team1.getId(), sender.getName());
+            PigUtils.spawnPigAndSetPassenger(SpawnLocation.of(team1.getSpawnLocation()), sender);
         }, () -> sender.sendMessage(TextUtils.colorize(config.get("messages", "commands", "jointeam", "team_not_found").getString())));
     }
 }

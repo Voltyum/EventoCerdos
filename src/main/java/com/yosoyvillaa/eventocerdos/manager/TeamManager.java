@@ -4,10 +4,10 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.yosoyvillaa.eventocerdos.EventoCerdos;
 import com.yosoyvillaa.eventocerdos.file.YAMLFile;
+import com.yosoyvillaa.eventocerdos.objects.SpawnLocation;
 import com.yosoyvillaa.eventocerdos.objects.Team;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.slf4j.Logger;
 import org.spongepowered.configurate.serialize.SerializationException;
 
 import java.util.HashMap;
@@ -21,16 +21,16 @@ public class TeamManager {
 
     @Inject @Named("data") private YAMLFile data;
     @Inject private EventoCerdos eventoCerdos;
-    @Inject private Logger logger;
 
     public void loadTeams() {
         if (!data.getConfigurationNode().hasChild("teams")) return;
         List<Team> teamList = data.getList(Team.class, "teams");
         teamList.forEach(team -> teamMap.put(team.getId(), team));
-        Bukkit.getScheduler().runTaskTimerAsynchronously(eventoCerdos, () -> {
-            logger.info("Saving teams...");
+        System.out.println(teamList);
+        Bukkit.getScheduler().runTaskTimer(eventoCerdos, () -> {
+            System.out.println("Saving teams...");
             saveTeams();
-        }, 20L, 3600L);
+        }, 60L, 20*120L);
     }
 
     public Optional<Team> findTeam(String id) {
@@ -38,7 +38,7 @@ public class TeamManager {
     }
 
     public void createTeam(String id, Location location) {
-        teamMap.put(id, new Team(id, id, new HashSet<>(), location));
+        teamMap.put(id, new Team(id, id, new HashSet<>(), SpawnLocation.of(location)));
         saveTeams();
     }
 

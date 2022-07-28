@@ -1,17 +1,21 @@
 package com.yosoyvillaa.eventocerdos.objects;
 
-import org.bukkit.Location;
+import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 
 import java.util.Set;
 
+@ConfigSerializable
 public class Team {
 
-    private final String id;
+    private String id;
     private String displayName;
     private Set<String> playerList;
-    private Location spawnLocation;
+    private SpawnLocation spawnLocation;
 
-    public Team(String id, String displayName, Set<String> playerList, Location spawnLocation) {
+    public Team() {
+    }
+
+    public Team(String id, String displayName, Set<String> playerList, SpawnLocation spawnLocation) {
         this.id = id;
         this.displayName = displayName;
         this.playerList = playerList;
@@ -46,11 +50,11 @@ public class Team {
         playerList.remove(playerName);
     }
 
-    public Location getSpawnLocation() {
+    public SpawnLocation getSpawnLocation() {
         return spawnLocation;
     }
 
-    public void setSpawnLocation(Location spawnLocation) {
+    public void setSpawnLocation(SpawnLocation spawnLocation) {
         this.spawnLocation = spawnLocation;
     }
 }

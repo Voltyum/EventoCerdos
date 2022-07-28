@@ -12,6 +12,7 @@ public class PigUtils {
 
     public static void spawnPigAndSetPassenger(Location location, Player entity) {
         entity.getInventory().clear();
+        entity.teleport(location);
         Pig pig = (Pig) location.getWorld().spawnEntity(location, EntityType.PIG);
         pig.setSaddle(true);
         pig.addPassenger(entity);
@@ -19,6 +20,6 @@ public class PigUtils {
         ItemMeta itemMeta = carrot.getItemMeta();
         itemMeta.setUnbreakable(true);
         carrot.setItemMeta(itemMeta);
-        entity.setItemOnCursor(carrot);
+        entity.getInventory().setItemInMainHand(carrot);
     }
 }
