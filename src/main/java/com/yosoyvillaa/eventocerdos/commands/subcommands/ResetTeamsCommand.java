@@ -29,6 +29,7 @@ public class ResetTeamsCommand implements CommandClass {
             teamManager.resetTeams();
             Location spawn = SpawnLocation.of(Objects.requireNonNull(data.get("main_spawn").get(SpawnLocation.class)));
             Bukkit.getServer().getOnlinePlayers().forEach(player1 -> {
+                player1.getInventory().clear();
                 player1.teleport(spawn);
             });
             sender.sendMessage(TextUtils.colorize(config.get("messages", "commands", "admin", "resetTeams", "success").getString()));
