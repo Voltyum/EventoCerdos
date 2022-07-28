@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.yosoyvillaa.eventocerdos.EventoCerdos;
 import com.yosoyvillaa.eventocerdos.commands.EventCommand;
-import com.yosoyvillaa.eventocerdos.commands.FuckingShitCommand;
 import com.yosoyvillaa.eventocerdos.commands.JoinTeamCommand;
 import me.fixeddev.commandflow.CommandManager;
 import me.fixeddev.commandflow.annotated.AnnotatedCommandTreeBuilder;
@@ -24,7 +23,6 @@ public class CommandsLoader implements Loader {
 
     @Inject private JoinTeamCommand joinTeamCommand;
     @Inject private EventCommand eventCommand;
-    @Inject private FuckingShitCommand fuckingShitCommand;
 
     @Inject private Injector injector;
 

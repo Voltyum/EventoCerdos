@@ -4,6 +4,7 @@ main: com.yosoyvillaa.eventocerdos.EventoCerdos
 api-version: 1.18
 softdepend: [ PlaceholderAPI ]
 authors: [ YoSoyVillaa ]
+load: STARTUP
 description: Plugin para el evento de cerdos de Voltyum
 libraries:
   - com.google.inject:guice:5.1.0
