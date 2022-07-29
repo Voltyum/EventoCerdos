@@ -4,6 +4,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 
 public class CreatureSpawnListener implements Listener {
 
@@ -16,5 +17,10 @@ public class CreatureSpawnListener implements Listener {
         if (event.getEntityType() == EntityType.PIG && event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.CUSTOM) {
             event.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void onDeath(EntityDeathEvent event) {
+        event.getDrops().clear();
     }
 }
