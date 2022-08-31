@@ -11,6 +11,7 @@ import me.fixeddev.commandflow.annotated.annotation.Command;
 import me.fixeddev.commandflow.bukkit.annotation.Sender;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.spongepowered.configurate.serialize.SerializationException;
 
@@ -38,10 +39,10 @@ public class ResetTeamsCommand implements CommandClass {
             throw new RuntimeException(e);
         }
 
-        // Kill all pigs in the server
+        // Kill all horses in the server
         Bukkit.getServer().getWorlds().forEach(world -> {
             world.getEntities().forEach(entity -> {
-                if (entity.getType().equals(org.bukkit.entity.EntityType.PIG)) {
+                if (entity.getType().equals(EntityType.HORSE)) {
                     entity.remove();
                 }
             });

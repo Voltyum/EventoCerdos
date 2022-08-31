@@ -39,7 +39,7 @@ public class JoinTeamCommand implements CommandClass {
             }
 
             teamManager.addPlayerToTeam(team1.getId(), sender.getName());
-            PigUtils.spawnPigAndSetPassenger(SpawnLocation.of(team1.getSpawnLocation()), sender);
+            PigUtils.spawnHorseAndSetPassenger(SpawnLocation.of(team1.getSpawnLocation()), sender);
         }, () -> sender.sendMessage(TextUtils.colorize(config.get("messages", "commands", "jointeam", "team_not_found").getString())));
     }
 }

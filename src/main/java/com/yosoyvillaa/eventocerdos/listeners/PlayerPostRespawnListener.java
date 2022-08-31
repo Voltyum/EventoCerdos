@@ -15,6 +15,6 @@ public class PlayerPostRespawnListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerPostRespawn(PlayerPostRespawnEvent event) {
-        teamManager.getPlayerTeam(event.getPlayer().getName()).ifPresent(team -> PigUtils.spawnPigAndSetPassenger(SpawnLocation.of(team.getSpawnLocation()), event.getPlayer()));
+        teamManager.getPlayerTeam(event.getPlayer().getName()).ifPresent(team -> PigUtils.spawnHorseAndSetPassenger(SpawnLocation.of(team.getSpawnLocation()), event.getPlayer()));
     }
 }
